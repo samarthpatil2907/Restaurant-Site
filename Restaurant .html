@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tasty Bites Restaurant</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f8f9fa;
+scroll-behavior:smooth;
+color:#333;
+}
+
+/* HEADER */
+
+header{
+background:#1b4332;
+color:white;
+padding:18px 50px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 3px 8px rgba(0,0,0,0.2);
+}
+
+header h2{
+letter-spacing:1px;
+}
+
+nav a{
+color:white;
+margin-left:25px;
+text-decoration:none;
+font-weight:500;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#f4a261;
+}
+
+/* HOME */
+
+.hero{
+background:url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4") center/cover no-repeat;
+height:70vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:white;
+background-blend-mode:overlay;
+background-color:rgba(0,0,0,0.5);
+}
+
+.hero h1{
+font-size:55px;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:20px;
+}
+
+section{
+padding:70px 40px;
+text-align:center;
+}
+
+/* BUTTONS */
+
+.menu-buttons{
+margin-bottom:40px;
+}
+
+.menu-buttons button{
+padding:12px 25px;
+font-size:16px;
+margin:0 10px;
+cursor:pointer;
+border:none;
+border-radius:30px;
+background:#f4a261;
+color:white;
+font-weight:500;
+transition:0.3s;
+}
+
+.menu-buttons button:hover{
+background:#e76f51;
+transform:scale(1.05);
+}
+
+/* RESTAURANT CARDS */
+
+.menu-items{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+margin-top:30px;
+}
+
+.card{
+background:#fff;
+border-radius:10px;
+box-shadow:0 6px 15px rgba(0,0,0,0.15);
+overflow:hidden;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+}
+
+.card img{
+width:100%;
+height:160px;
+object-fit:cover;
+}
+
+.card a{
+display:block;
+padding:15px;
+text-decoration:none;
+color:#1b4332;
+font-weight:600;
+font-size:18px;
+}
+
+/* CONTACT HEADER */
+
+.contact-header{
+background:url("https://images.unsplash.com/photo-1555396273-367ea4eb4db5") center/cover no-repeat;
+height:300px;
+display:flex;
+align-items:center;
+justify-content:center;
+background-blend-mode:overlay;
+background-color:rgba(0,0,0,0.4);
+}
+
+.contact-header h1{
+color:white;
+font-size:48px;
+}
+
+/* CONTACT INFO */
+
+.contact-info{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:25px;
+margin:40px 0;
+}
+
+.info-box{
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 6px 15px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.info-box:hover{
+transform:translateY(-5px);
+}
+
+.info-box h3{
+color:#f4a261;
+margin-bottom:10px;
+}
+
+/* CONTACT FORM */
+
+.contact-form{
+max-width:600px;
+margin:auto;
+background:white;
+padding:35px;
+border-radius:10px;
+box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+.contact-form input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:6px;
+font-size:15px;
+}
+
+.contact-form input:focus{
+outline:none;
+border-color:#f4a261;
+}
+
+/* MESSAGE BOX */
+
+.message-box{
+border:1px solid #ccc;
+border-radius:6px;
+padding:10px;
+margin:10px 0;
+background:#fafafa;
+}
+
+.message-box select{
+width:100%;
+border:none;
+padding:8px;
+margin-bottom:5px;
+background:transparent;
+}
+
+.message-box textarea{
+width:100%;
+border:none;
+resize:none;
+padding:5px;
+background:transparent;
+}
+
+.message-box textarea:focus,
+.message-box select:focus{
+outline:none;
+}
+
+#charCount{
+font-size:12px;
+text-align:right;
+color:gray;
+}
+
+/* BUTTON */
+
+.contact-form button{
+background:#1b4332;
+color:white;
+padding:12px 30px;
+border:none;
+border-radius:30px;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.contact-form button:hover{
+background:#f4a261;
+}
+
+/* MAP */
+
+.map{
+margin-top:40px;
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 6px 15px rgba(0,0,0,0.2);
+}
+
+.map iframe{
+width:100%;
+height:300px;
+border:none;
+}
+
+/* OPEN SECTION */
+
+.open-section{
+background:#e9f5f1;
+padding:40px;
+margin-top:60px;
+border-radius:10px;
+}
+
+/* FOOTER */
+
+footer{
+background:#1b4332;
+color:white;
+padding:18px;
+text-align:center;
+margin-top:40px;
+}
+
+.hidden{
+display:none;
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<h2>🍽️Tasty Bites</h2>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#menu">Menu</a>
+<a href="#contact">Contact</a>
+</nav>
+
+</header>
+
+
+<section id="home" class="hero">
+<h1>Welcome to Tasty Bites</h1>
+<p>Best Veg & Non-Veg Restaurants in Shirpur</p>
+</section>
+
+
+<section id="menu">
+
+<h2>Our Restaurants</h2>
+
+<div class="menu-buttons">
+<button onclick="showCategory('veg')">🌱 Vegetarian</button>
+<button onclick="showCategory('nonveg')">🍗 Non-Vegetarian</button>
+</div>
+
+
+<div id="veg" class="menu-category">
+
+<h3>🌱 Vegetarian Restaurants</h3>
+
+<div class="menu-items">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1552566626-52f8b828add9">
+<a href="Shri sai restaurant.html">Shri Sai restaurant</a>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4">
+<a href="veg masala.html">Veg Masala</a>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5">
+<a href="pure veg tadka.html">Pure Veg Tadka</a>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0">
+<a href="Golden restaurant.html">Golden restaurant</a>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b">
+<a href="Royal.html">Royal restaurant</a>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c">
+<a href="palvi.html">palvi restaurant</a>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1555992336-03a23c7b20ee">
+<a href="Annapurna restaurant.html">Annapurna Restaurant</a>
+</div>
+
+</div>
+</div>
+
+
+<div id="nonveg" class="menu-category hidden">
+
+<h3>🍗 Non-Vegetarian Restaurants</h3>
+
+<div class="menu-items">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092">
+<a href="chicken hub.html">Chicken Hub</a>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38">
+<a href="Golden palace.html">Golden palace</a>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d">
+<a href="Biryani.html">Biryani restaurant</a>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+<a href="darbar.html">Maratha Darbar</a>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1544025162-d76694265947">
+<a href="Gitanjali.html">Gitanjali</a>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7">
+<a href="MCM Biryani.html">M.C.M Biryani</a>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1601050690597-df0568f70950">
+<a href="matka biryani.html">mataka biryani</a>
+</div>
+
+</div>
+</div>
+
+</section>
+
+
+<section id="contact">
+
+<div class="contact-header">
+<h1>Contact Us</h1>
+</div>
+
+<h2>HAVE ANY QUESTIONS</h2>
+
+<p>Send us a message below.</p>
+
+<div class="contact-info">
+
+<div class="info-box">
+<h3>📞 Phone</h3>
+<p>+91 9876543210</p>
+</div>
+
+<div class="info-box">
+<h3>📧 Email</h3>
+<p>tastybites@gmail.com</p>
+</div>
+
+<div class="info-box">
+<h3>📍 Location</h3>
+<p>Shirpur, Maharashtra</p>
+</div>
+
+</div>
+
+
+<div class="contact-form">
+
+<form id="contactForm">
+
+<input type="email" placeholder="Enter a valid email address" required>
+
+<input type="text" placeholder="Enter your Name" required>
+
+<input type="tel" placeholder="Enter your Phone Number" pattern="[0-9]{10}" required>
+
+<div class="message-box">
+
+<select required>
+<option value="">Select Subject</option>
+<option>Food Inquiry</option>
+<option>Table Booking</option>
+<option>Complaint</option>
+<option>Feedback</option>
+</select>
+
+<textarea id="message" rows="4" placeholder="Enter your message" maxlength="200" required></textarea>
+
+<p id="charCount">0 / 200</p>
+
+</div>
+
+<button type="submit">Send Message</button>
+
+<p id="successMsg" style="color:green;display:none;">Message sent successfully!</p>
+
+</form>
+
+</div>
+
+
+<div class="map">
+<iframe src="https://maps.google.com/maps?q=shirpur&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+</div>
+
+
+<div class="open-section">
+
+<h2>WE ARE OPEN</h2>
+
+<p>Delivery within 25 km in any direction.</p>
+
+<p>
+Mon - Wed: 9:00 am - 5:00 pm <br>
+Thu - Fri: 9:00 am - 8:30 pm <br>
+Saturday: 9:00 am - 10:00 pm <br>
+Sunday: Closed
+</p>
+
+</div>
+
+</section>
+
+<footer>
+<p>© 2026 Tasty Bites Restaurant</p>
+</footer>
+
+
+<script>
+
+function showCategory(category){
+if(category==='veg'){
+document.getElementById('veg').classList.remove('hidden');
+document.getElementById('nonveg').classList.add('hidden');
+}else{
+document.getElementById('nonveg').classList.remove('hidden');
+document.getElementById('veg').classList.add('hidden');
+}
+}
+
+const message = document.getElementById("message");
+const counter = document.getElementById("charCount");
+
+message.addEventListener("input",function(){
+counter.innerText = message.value.length + " / 200";
+});
+
+document.getElementById("contactForm").addEventListener("submit",function(e){
+e.preventDefault();
+document.getElementById("successMsg").style.display="block";
+this.reset();
+counter.innerText="0 / 200";
+});
+
+</script>
+
+</body>
+</html>
